@@ -1,0 +1,684 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,700;0,800;1,700;1,800&display=swap');
+
+:root {
+    /* Primary colors */
+    --primary-blue:               #3a0fd6;
+
+    /* Secondary colors */
+    --light-blue:                 #539dd1;
+    --lighter-blue:               #e5f4ff;
+    --dark-red:                   #ba3a3a;
+    --light-red:                  #e67474;
+
+    /* Component colors */
+    --nav-menu-link-color:        #f8fbc6;
+    --nav-menu-dropdown-color:    #52a6e0;
+    --covid-banner-color:         #fb2b2ba1;
+    --policy-selector-color:      #1e66c5;
+    --policy-selector-color-dark: #1956a5;
+
+    /* Times */
+    --nav-menu-dropdown-transition-time: 0.5s;
+}
+
+html {
+    height: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Lato', serif;
+}
+
+main {
+    display: flex;
+    flex: auto;
+}
+
+/* Nav menu starts */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    margin-top: 0px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: var(--light-blue);
+}
+
+nav a {
+    padding: 1rem;
+}
+
+nav a:hover {
+    transform: scale(1.1);
+}
+
+nav .navbar-toggler {
+    height: 48px;
+    width: 48px;
+    font-size: 1.5rem;
+    color: var(--yellow);
+    background-color: var(--navy);
+    border-radius: 10px;
+    border-style: double;
+    transition: transform var(--default-transition-time);
+}
+
+nav .navbar-toggler:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+nav .navbar-collapse {
+	flex: 1 1 100%;
+	max-width: 100%;
+    visibility: hidden;
+    max-height: 0px;
+    transition: max-height var(--nav-menu-dropdown-transition-time);
+}
+
+nav .open {
+    visibility: visible;
+    justify-content: center;
+    max-height: 400px;
+    margin-top: 1rem;
+    background-color: var(--nav-menu-dropdown-color);
+}
+
+nav .navbar-collapse .navbar-nav, nav .navbar-collapse .dropdown-menu {
+	padding: 0;
+	margin: 0;
+    list-style-type: none;
+}
+
+nav .navbar-collapse .navbar-nav .nav-item {
+    text-align: center;
+}
+
+nav .navbar-collapse .navbar-nav .nav-item .nav-link {
+    color: var(--nav-menu-link-color);
+    font-family: "Sarabun", sans-serif;
+    text-shadow: 1px 1px black;
+}
+
+nav .navbar-collapse .navbar-nav .nav-item .nav-link, nav .navbar-collapse .navbar-nav .nav-item.dropdown .dropdown-link {
+    display: block;
+    padding: calc(1em / 1.618) 1em;
+    overflow: hidden;
+	text-decoration: none;
+}
+
+nav .navbar-collapse .navbar-nav {
+    font-size: 1.25rem;
+}
+
+/* Desktop */
+@media screen and ( min-width: 1024px ) {
+
+    nav {
+        justify-content: space-between;
+    }
+
+    nav a {
+        margin-left: 1rem;
+    }
+
+    nav .navbar-toggler {
+        display: none;
+    }
+
+    nav .navbar-collapse {
+        display: inline-flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+        align-content: center;
+        padding-right: 2rem;
+        visibility: visible;
+        max-height: 1rem;
+        max-width: 60%;
+    }
+
+    nav .navbar-collapse.open {
+        background-color: transparent;
+    }
+
+    nav .navbar-collapse .navbar-nav {
+        display: inline-flex;
+    }
+
+    nav .navbar-collapse .navbar-nav .nav-item .nav-link {
+        font-size: 1.15rem;
+    }
+}
+
+/* XL desktop */
+@media screen and ( min-width: 1200px ) {
+
+    nav .navbar-collapse .navbar-nav .nav-item .nav-link {
+        font-size: 1.35rem;
+    }
+}
+
+/* Nav menu ends */
+
+/* Homepage starts */
+
+.covid-banner {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding-left: 1rem;
+    background-color: var(--covid-banner-color);
+}
+
+.covid-banner .covid-information h3 {
+    text-align: center;
+}
+
+.homepage .homepage-section {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.homepage .homepage-section.alt-color {
+    background-color: var(--lighter-blue);
+}
+
+.homepage .homepage-section .homepage-header {
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.homepage .homepage-banner .banner {
+    width: 100%;
+    max-width: 100%;
+}
+
+.homepage .homepage-section.homepage-services p {
+    font-size: 1.30rem;
+    text-align: center;
+}
+
+.homepage .homepage-section .homepage-services-list,
+.homepage .homepage-section .homepage-choices-list {
+    padding-left: 4rem;
+}
+
+.homepage .homepage-section .homepage-services-list .homepage-services-item, 
+.homepage .homepage-section .homepage-choices-list .homepage-choice-item {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 1.30rem;
+}
+
+.homepage .homepage-section h2 {
+    font-family: "Sarabun", sans-serif;
+    font-style: italic;
+}
+
+.homepage .homepage-section.homepage-contact-info {
+    text-align: center;
+}
+
+.homepage .homepage-section .map {
+    width: 100%;
+    height: 50vh;
+}
+
+@media screen and ( min-width: 1024px) {
+
+    .covid-banner {
+        padding-left: 0;
+    }
+
+    .homepage .homepage-section.homepage-services {
+        order: -1;
+    }
+
+    .homepage .homepage-section .map {
+        display: flex;
+        align-self: center;
+        height: 40vh;
+    } 
+
+}
+
+/* Homepage ends */
+
+/* Policies page starts */
+
+.policies-area .policy-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--policy-selector-color);
+    min-height: 70px;
+}
+
+.policies-area .policy-selector:hover {
+    background-color: #2e4bcc;
+    cursor: pointer;
+}
+
+.policies-area .policy-selector.selected {
+    background-color: var(--policy-selector-color-dark);
+}
+
+.policies-area .policy-selector a {
+    color: var(--nav-menu-link-color);
+    font-size: 1.15rem;
+    text-decoration: none;
+    text-shadow: 1px 1px black;
+}
+
+.policies-area .policy-selector a:hover {
+    text-decoration: underline;
+}
+
+.policies-area .policy-description {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.policies-area .policy-description h2 {
+    text-align: center;
+}
+
+.policies-area .policy-description .description-text {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.35rem;
+}
+
+.policies-area .policy-image img {
+    width: 100%;
+}
+
+.policies-area .policy-description.hidden, .policies-area .policy-image.hidden {
+    display: none;
+}
+
+@media screen and ( min-width: 1024px) {
+
+    .policies-area .policy-selector a {
+        font-size: 1.35rem;
+        font-weight: bold;
+    }
+
+}
+
+/* Policies page ends */
+
+/* Manage quote page starts */
+
+.bold-text {
+    font-weight: bold;
+}
+
+.manage-quote-description {
+    text-align: center;
+}
+
+.manage-quote-form {
+    display: flex;
+    justify-content: center;
+}
+
+.manage-quote-form form {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.manage-quote-form-section {
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.manage-quote-form-section label {
+    padding-bottom: 0.5rem;
+}
+
+.manage-quote-form-section input, .manage-quote-form-section select {
+    width: 50%;
+}
+
+.manage-quote-form-submit-section, .manage-quote-request-submitted-submit-section {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 2rem;
+}
+
+.manage-quote-request-submitted-submit-section input {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.request-submitted {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.request-submitted table {
+    margin-top: 2rem;
+}
+
+.request-submitted table, .request-submitted th, .request-submitted td {
+    border: 1px solid black;
+}
+
+.request-submitted th, .request-submitted td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.request-submitted table tr .table-header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+@media screen and ( min-width: 1024px) {
+
+    .manage-quote-description p {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  
+}
+
+/* Manage quote page ends */
+
+/* Partners page starts */
+
+.partners {
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.partners .partners-header p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.partners .partners-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.partners .partners-section.alt-color {
+    background-color: lightgray;
+}
+
+.partners .partners-section .partner-logo img {
+    width: 95vw;
+    height: 160px;
+    object-fit: scale-down;
+}
+
+.partners .partners-section .partner-description a {
+    text-decoration: none;
+}
+
+.partners .partners-section .partner-description a:hover {
+    text-decoration: underline;
+}
+
+@media screen and ( min-width: 1024px) {
+    
+    .partners .partners-section {
+        display: flex;
+    }
+
+    .partners .partners-section .row {
+        flex-flow: row-reverse wrap;
+        width: 100%;
+    }
+
+    .partners .partners-section .partner-logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .partners .partners-section .partner-logo img {
+        max-width: fit-content;
+    }
+
+    .partners .partners-section .partner-description {
+        align-self: center;
+    }
+
+}
+
+/* Partners page ends */
+
+/* About us page starts */
+
+.about-us .about-us-image {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.about-us .about-us-description {
+    text-align: center;
+    font-size: 1.10rem;
+}
+
+.about-us .about-us-description h2, .about-us .about-us-description h3, .about-us .about-us-description p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.about-us .about-us-gallery-header {
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.about-us .about-us-gallery-photo img {
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 2rem;
+}
+
+@media screen and ( min-width: 1024px) {
+
+    .about-us .about-us-gallery-header {
+        order: 1;
+    }
+
+    .about-us .about-us-gallery-photo {
+        margin-left: auto;
+        margin-right: auto;
+        order: 2;
+    }
+
+    .about-us .about-us-image {
+        align-self: center;
+        padding-top: 0;
+        order: 1;
+    }
+
+}
+
+/* About us page ends */
+
+/* FAQ page starts */
+
+.faq .faq-banner {
+    text-align: center;
+}
+
+.faq .faq-section h2, .faq .faq-section h3, .faq .faq-section p{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.faq .faq-section .table-of-contents a {
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.faq .faq-section .table-of-contents a:hover {
+    text-decoration: underline;
+}
+
+/* FAQ page ends */
+
+/* Privacy policy page starts */
+
+.policy-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.policy-header {
+    margin-top: 1rem;
+}
+
+.policy-header, .policy-header-subtitle {
+    text-align: center;
+}
+
+/* Privacy policy page ends */
+
+/* login page starts */
+
+.login-description {
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+}
+
+.log-form form {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.login-form-section {
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.login-form-section select {
+    width: 45%;
+}
+
+.login-form-section .registration-link {
+    text-align: center;
+}
+
+.login-form-submit-section {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 2rem;
+}
+
+@media screen and ( min-width: 1024px) {
+
+    .login-description p {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+/* login page ends */
+
+/* Registration page starts */
+
+.signup .signup-description, .signup .signup-form {
+    text-align: center;
+}
+
+.signup .signup-form .signup-form-section {
+    padding-bottom: 1rem;
+}
+
+.signup .signup-form .signup-form-submit-section {
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+/* Registration page ends */
+
+/* Footer starts */
+
+footer {
+    background-color: var(--light-blue);
+}
+
+footer .footer-disclaimer {
+    align-self: center;
+    text-align: center;
+}
+
+footer .footer-menu-category {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+footer .footer-menu-header {
+    color: white;
+    font-weight: bold;
+}
+
+footer .footer-menu.contact-info {
+    display: none;
+}
+
+footer .footer-menu-category a {
+    color: var(--lighter-blue);
+    text-decoration: none;
+}
+
+footer .footer-menu-category a:hover {
+    text-decoration: underline;
+}
+
+footer .footer-menu-category .footer-text {
+    color: var(--lighter-blue);
+}
+
+@media screen and ( min-width: 768px ) {
+
+    footer .footer-menu.contact-info {
+        display: block;
+    }
+
+}
+
+/* Footer ends */
